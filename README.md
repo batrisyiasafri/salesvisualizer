@@ -46,6 +46,7 @@ A lightweight, modern **Flask-based web application** for quickly generating vis
 ## 🖼 Preview
 
 ![Screenshot](static/screenshot1.png)  
+![Screenshot](static/screenshot2.png)  
 <sub>_Sample view of the dashboard with summary table and chart_</sub>
 
 ---
