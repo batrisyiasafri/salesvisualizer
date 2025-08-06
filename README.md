@@ -120,5 +120,5 @@ This project is licensed under the MIT License — see the LICENSE file for deta
 This is a demo tool. Use at your own risk.
 Do not upload confidential, private, or sensitive information.
 
-🌐 Live Demo (optional)
+🌐 Live Demo
 🔗[ Click here to try the live demo](http://127.0.0.1:5000)
