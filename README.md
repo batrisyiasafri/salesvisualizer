@@ -61,14 +61,14 @@ project/
 ├── sample_sales.csv
 │
 ├── templates/
-│ ├── index.html # Upload and summary page
-│ ├── dashboard.html # Chart view
-│ └── dashboard_pdf.html # For PDF export
+│   ├── index.html          # Upload and summary page
+│   ├── dashboard.html      # Chart view
+│   └── dashboard_pdf.html  # For PDF export
 │
 └── static/
-├── style.css
-├── script.js
-└── screenshot.png # Used in README preview
+    ├── style.css
+    ├── script.js
+    └── screenshot.png      # Used in README preview
 
 
 ---
@@ -90,18 +90,12 @@ http://127.0.0.1:5000
 ### 📄 CSV Format
 Ensure your CSV is structured like this:
 
-date,item,amount
-01/07/2025,Item A,150.50
-01/07/2025,Item B,200.00
-02/07/2025,Item A,100.00
+- **Date:** must be in `DD/MM/YYYY` format  
+- **Amounts:** only numbers (no symbols or commas)  
+- No empty rows or extra headers  
+- Date: in DD/MM/YYYY format
 
-Date: in DD/MM/YYYY format
-
-Date must be in DD/MM/YYYY format
-
-Amounts: only numbers (no symbols or commas)
-
-No empty rows or extra headers
+---
 
 ### 📦 What’s Included in the Download
 
