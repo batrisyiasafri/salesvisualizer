@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sales Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Sales Dashboard</h1>
+
+    <p>Showing summary for: <strong>{{ mode.capitalize() }}</strong></p>
+
+
+    <canvas id="salesChart" ></canvas>
+
+<div class="chart-controls">
+  <label for="chartType">Chart Type:</label>
+   <span class="tooltip" tabindex="0" aria-label="Select the type of chart to display your sales data">?</span>
+  <select id="chartType">
+    <option value="bar">Bar</option>
+    <option value="line">Line</option>
+    <option value="pie">Pie</option>
+  </select>
+</div>
+
+
+    <div class="button-group">
+
+      <a href="{{ url_for('index', clear=1) }}"><button class="primary-button">Upload New CSV</button></a>
+
+       <form action="/download_pdf" method="POST" id="pdfForm" style="display:inline;">
+        <input type="hidden" name="chartImage" id="chartImageInput">
+        <input type="hidden" name="chartType" id="chartTypeInput" value="bar">
+        <button type="submit" class="primary-button">Export to PDF</button>
+      </form>
+
+
+      <form action="/clear" method="POST" style="display:inline;">
+        <button type="submit" class="primary-button">Clear Summary</button>
+      </form>
+    </div>
+
+  </div>
+
+
+<script>
+  window.chartDataFromServer = {
+    labels: {{ labels | tojson | safe }},
+    data: {{ data | tojson | safe }}
+  };
+</script>
+
+<script src="{{ url_for('static', filename='chart.js') }}"></script>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>

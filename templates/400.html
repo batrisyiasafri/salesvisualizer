@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>404 - Not Found</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .container {
+      text-align: center;
+      padding: 30px;
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.05);
+      max-width: 500px;
+    }
+
+    .emoji {
+      font-size: 80px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 48px;
+      color: #e74c3c;
+      margin: 0;
+    }
+
+    p {
+      font-size: 18px;
+      margin: 10px 0 25px;
+      color: #666;
+    }
+
+    a {
+      text-decoration: none;
+      background-color: #007bff;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-weight: bold;
+      display: inline-block;
+      transition: background-color 0.2s;
+    }
+
+    a:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="emoji">⚠️📄</div>
+    <h1>400</h1>
+    <p>That request didn’t look right. Please check and try again.</p>
+    <a href="{{ url_for('index') }}">← Back to Homepage</a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Sales Summary Report</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    {% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class="flash-messages">
+      {% for message in messages %}
+        <li>{{ message }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+</head>
+<body>
+    <div class="container">
+        <a href="{{ url_for('landing') }}" class="back-button">← Back</a>
+
+        {% if current_user.is_authenticated %}
+      <form action="{{ url_for('logout') }}" method="get" class="logout-form">
+        <button type="submit" class="logout-btn">Logout</button>
+      </form>
+    {% endif %}
+
+      <!-- Add link here -->
+  <div style="text-align: center; margin: 15px 0;">
+    <a href="{{ url_for('my_uploads') }}" class="primary-button" style="text-decoration: none;">
+      View My Uploaded Files
+    </a>
+  </div>
+
+
+        <h1>Upload Sales CSV</h1>
+
+        <!-- upload n filter -->
+        <form action="/index" method="POST" enctype="multipart/form-data" id="uploadForm">
+            <div class="custom-file-input">
+                <label for="csvFile" id="fileLabel">Upload CSV File</label>
+                <input type="file" name="file" id="csvFile" accept=".csv"  style="display:none;">
+                <span id="fileName">No file chosen</span>
+            </div>
+
+            <!-- dwnload sample csv -->
+            <div class="sample-download">
+               <a href="{{ url_for('static', filename='sample_sales.csv') }}" download>
+                    Download Sample CSV
+               </a>
+
+
+                <span class="tooltip" aria-label="CSV must have columns: Date, Item, Amount. Extra columns are ignored. Delimiters: comma, semicolon, or tab.">
+                 ⓘ
+                </span>
+            </div>
+
+
+
+            <!-- choose date -->
+            <div class="date-range">
+                <label>From:
+                    <input type="date" name="from_date">
+                </label>
+                <label>To:
+                    <input type="date" name="to_date">
+                </label>
+            </div>
+
+            <!-- choose which to dispaly -->
+            <div class="summary-mode">
+                <label>
+                    <input type="radio" name="mode" value="date" {% if mode == 'date' %}checked{% endif %}>
+                    Summary by Date
+                </label>
+                <label>
+                    <input type="radio" name="mode" value="item" {% if mode == 'item' %}checked{% endif %}>
+                    Summary by Item
+                </label>
+                <label>
+                    <input type="radio" name="mode" value="combined" {% if mode == 'combined' %}checked{% endif %}>
+                    All
+                </label>
+            </div>
+
+            <div class="button-group">
+                <button type="submit" class="primary-button">Generate Summary</button>
+            </div>
+        </form>
+
+        <!-- clear summry btn -->
+        {% if summary %}
+        <form action="/clear" method="POST" id="clearForm" style="text-align: center; margin-top: 10px;">
+            <button type="submit" class="primary-button">Clear Summary</button>
+        </form>
+        {% endif %}
+
+        <!-- to dahsbord -->
+        {% if summary %}
+         <a href="{{ url_for('dashboard') }}" class="back-button">← Go to Dashboard</a>
+        {% endif %}
+
+        <!-- summary table -->
+        {% if summary %}
+        <h2>
+            {% if mode == "date" %}
+                Sales Summary by Date
+            {% elif mode == "item" %}
+                Sales Summary by Item
+            {% else %}
+                Combined Sales Summary (Date + Item)
+            {% endif %}
+        </h2>
+
+        <table>
+            <thead>
+                <tr>
+                    {% if mode == "combined" %}
+                        <th>Date</th>
+                        <th>Item</th>
+                        <th>Total Sales ($)</th>
+                    {% else %}
+                        <th>{{ "Date" if mode == "date" else "Item" }}</th>
+                        <th>Total Sales ($)</th>
+                    {% endif %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for key, total in summary.items() %}
+                <tr>
+                    {% if mode == "combined" %}
+                        <td>{{ key[0].strftime("%d/%m/%Y") }}</td>
+                        <td>{{ key[1] }}</td>
+                    {% elif mode == "date" %}
+                        <td>{{ key.strftime("%d/%m/%Y") }}</td>
+                    {% else %}
+                        <td>{{ key }}</td>
+                    {% endif %}
+                    <td>${{ '%.2f'|format(total) }}</td>
+                </tr>
+                {% endfor %}
+                <!-- total row -->
+                 <tr>
+                    <td colspan="{% if mode == 'combined' %}2{% else %}1{% endif %}"><strong>Total</strong></td>
+                    <td><strong>
+                       $ {{ '%.2f'|format(total_sales) }}
+                    </strong></td>
+                 </tr>
+            </tbody>
+        </table>
+
+        <!-- dwnload excel repot -->
+        <form action="/download" method="POST" style="text-align: center; margin-top: 20px;">
+            <button type="submit" class="primary-button">Download Excel Report</button>
+        </form>
+        {% endif %}
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+    
+
+</body>
+</html>

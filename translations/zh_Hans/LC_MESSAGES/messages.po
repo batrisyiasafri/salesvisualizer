@@ -1,0 +1,405 @@
+# Chinese (Simplified) translations for PROJECT.
+# Copyright (C) 2025 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <batrisyia.safri@csb.gov.bn>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: v4\n"
+"Report-Msgid-Bugs-To: <batrisyia.safri@csb.gov.bn>\n"
+"POT-Creation-Date: 2025-08-05 07:30+0800\n"
+"PO-Revision-Date: 2025-08-05 07:32+0800\n"
+"Last-Translator: FULL NAME <batrisyia.safri@csb.gov.bn>\n"
+"Language: zh_Hans\n"
+"Language-Team: zh_Hans <batrisyia.safri@csb.gov.bn>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: templates/landing.html:178
+msgid "Sales Visualizer"
+msgstr "销售可视化工具"
+
+#: templates/landing.html:179
+msgid "Turn boring CSVs into interactive charts and summaries instantly."
+msgstr "瞬间将枯燥的 CSV 转换为互动图表和摘要。"
+
+#: templates/landing.html:192
+msgid "Features"
+msgstr "功能"
+
+#: templates/landing.html:194
+msgid "Upload CSVs and generate clean sales reports"
+msgstr "上传 CSV 并生成清晰的销售报告"
+
+#: templates/landing.html:195
+msgid "Interactive charts (bar, line, pie)"
+msgstr "交互式图表（柱状图、折线图、饼图）"
+
+#: templates/landing.html:196
+msgid "Export to PDF and Excel"
+msgstr "导出为 PDF 和 Excel"
+
+#: templates/landing.html:197
+msgid "Filter by date and item"
+msgstr "按日期和项目筛选"
+
+#: templates/landing.html:202
+msgid "Try the Live Demo"
+msgstr "试用在线演示"
+
+#: templates/landing.html:207
+msgid "Built with Python, Flask, Chart.js, and love."
+msgstr "基于 Python、Flask、Chart.js 以及满满的热情构建。"
+
+#: templates/landing.html:208
+msgid "Terms of Use"
+msgstr "使用条款"
+
+#: venv/Lib/site-packages/click/_termui_impl.py:600
+#, python-brace-format
+msgid "{editor}: Editing failed"
+msgstr "{editor}：编辑失败"
+
+#: venv/Lib/site-packages/click/_termui_impl.py:604
+#, python-brace-format
+msgid "{editor}: Editing failed: {e}"
+msgstr "{editor}：编辑失败：{e}"
+
+#: venv/Lib/site-packages/click/core.py:1084
+#: venv/Lib/site-packages/click/core.py:1121
+#, python-brace-format
+msgid "{text} {deprecated_message}"
+msgstr "{text} {deprecated_message}"
+
+#: venv/Lib/site-packages/click/core.py:1140
+msgid "Options"
+msgstr "选项"
+
+#: venv/Lib/site-packages/click/core.py:1202
+#, python-brace-format
+msgid "Got unexpected extra argument ({args})"
+msgid_plural "Got unexpected extra arguments ({args})"
+msgstr[0] "收到意外的额外参数（{args}）"
+
+#: venv/Lib/site-packages/click/core.py:1221
+#, python-brace-format
+msgid "DeprecationWarning: The command {name!r} is deprecated.{extra_message}"
+msgstr "弃用警告：命令 {name!r} 已被弃用。{extra_message}"
+
+#: venv/Lib/site-packages/click/core.py:1405
+msgid "Aborted!"
+msgstr "已中止！"
+
+#: venv/Lib/site-packages/click/core.py:1779
+msgid "Commands"
+msgstr "命令"
+
+#: venv/Lib/site-packages/click/core.py:1810
+msgid "Missing command."
+msgstr "缺少命令。"
+
+#: venv/Lib/site-packages/click/core.py:1888
+#, python-brace-format
+msgid "No such command {name!r}."
+msgstr "没有此命令 {name!r}。"
+
+#: venv/Lib/site-packages/click/core.py:2303
+msgid "Value must be an iterable."
+msgstr "值必须是可迭代对象。"
+
+#: venv/Lib/site-packages/click/core.py:2324
+#, python-brace-format
+msgid "Takes {nargs} values but 1 was given."
+msgid_plural "Takes {nargs} values but {len} were given."
+msgstr[0] "需要 {nargs} 个值，但只给了 1 个。"
+
+#: venv/Lib/site-packages/click/core.py:2404
+#, python-brace-format
+msgid ""
+"DeprecationWarning: The {param_type} {name!r} is "
+"deprecated.{extra_message}"
+msgstr "弃用警告：{param_type} {name!r} 已被弃用。{extra_message}"
+
+#: venv/Lib/site-packages/click/core.py:2807
+#, python-brace-format
+msgid "env var: {var}"
+msgstr "环境变量：{var}"
+
+#: venv/Lib/site-packages/click/core.py:2810
+#, python-brace-format
+msgid "default: {default}"
+msgstr "默认值：{default}"
+
+#: venv/Lib/site-packages/click/core.py:2814
+msgid "required"
+msgstr "必需"
+
+#: venv/Lib/site-packages/click/core.py:2870
+msgid "(dynamic)"
+msgstr "（动态）"
+
+#: venv/Lib/site-packages/click/decorators.py:465
+#, python-format
+msgid "%(prog)s, version %(version)s"
+msgstr "%(prog)s，版本 %(version)s"
+
+#: venv/Lib/site-packages/click/decorators.py:522
+msgid "Show the version and exit."
+msgstr "显示版本并退出。"
+
+#: venv/Lib/site-packages/click/decorators.py:548
+msgid "Show this message and exit."
+msgstr "显示此消息并退出。"
+
+#: venv/Lib/site-packages/click/exceptions.py:50
+#: venv/Lib/site-packages/click/exceptions.py:89
+#, python-brace-format
+msgid "Error: {message}"
+msgstr "错误：{message}"
+
+#: venv/Lib/site-packages/click/exceptions.py:81
+#, python-brace-format
+msgid "Try '{command} {option}' for help."
+msgstr "尝试使用 '{command} {option}' 获取帮助。"
+
+#: venv/Lib/site-packages/click/exceptions.py:130
+#, python-brace-format
+msgid "Invalid value: {message}"
+msgstr "无效的值：{message}"
+
+#: venv/Lib/site-packages/click/exceptions.py:132
+#, python-brace-format
+msgid "Invalid value for {param_hint}: {message}"
+msgstr "{param_hint} 的值无效：{message}"
+
+#: venv/Lib/site-packages/click/exceptions.py:190
+msgid "Missing argument"
+msgstr "缺少参数"
+
+#: venv/Lib/site-packages/click/exceptions.py:192
+msgid "Missing option"
+msgstr "缺少选项"
+
+#: venv/Lib/site-packages/click/exceptions.py:194
+msgid "Missing parameter"
+msgstr "缺少参数"
+
+#: venv/Lib/site-packages/click/exceptions.py:196
+#, python-brace-format
+msgid "Missing {param_type}"
+msgstr "缺少 {param_type}"
+
+#: venv/Lib/site-packages/click/exceptions.py:203
+#, python-brace-format
+msgid "Missing parameter: {param_name}"
+msgstr "缺少参数：{param_name}"
+
+#: venv/Lib/site-packages/click/exceptions.py:223
+#, python-brace-format
+msgid "No such option: {name}"
+msgstr "没有此选项：{name}"
+
+#: venv/Lib/site-packages/click/exceptions.py:235
+#, python-brace-format
+msgid "Did you mean {possibility}?"
+msgid_plural "(Possible options: {possibilities})"
+msgstr[0] "您是指 {possibility} 吗？"
+
+#: venv/Lib/site-packages/click/exceptions.py:282
+msgid "unknown error"
+msgstr "未知错误"
+
+#: venv/Lib/site-packages/click/exceptions.py:289
+#, python-brace-format
+msgid "Could not open file {filename!r}: {message}"
+msgstr "无法打开文件 {filename!r}：{message}"
+
+#: venv/Lib/site-packages/click/formatting.py:156
+msgid "Usage:"
+msgstr "用法："
+
+#: venv/Lib/site-packages/click/parser.py:200
+#, python-brace-format
+msgid "Argument {name!r} takes {nargs} values."
+msgstr "参数 {name!r} 需要 {nargs} 个值。"
+
+#: venv/Lib/site-packages/click/parser.py:383
+#, python-brace-format
+msgid "Option {name!r} does not take a value."
+msgstr "选项 {name!r} 不接受值。"
+
+#: venv/Lib/site-packages/click/parser.py:444
+#, python-brace-format
+msgid "Option {name!r} requires an argument."
+msgid_plural "Option {name!r} requires {nargs} arguments."
+msgstr[0] "选项 {name!r} 需要一个参数。"
+
+#: venv/Lib/site-packages/click/shell_completion.py:326
+msgid "Shell completion is not supported for Bash versions older than 4.4."
+msgstr "Bash 4.4 以下版本不支持 Shell 补全。"
+
+#: venv/Lib/site-packages/click/shell_completion.py:333
+msgid "Couldn't detect Bash version, shell completion is not supported."
+msgstr "无法检测 Bash 版本，Shell 补全不支持。"
+
+#: venv/Lib/site-packages/click/termui.py:162
+msgid "Repeat for confirmation"
+msgstr "请重复确认"
+
+#: venv/Lib/site-packages/click/termui.py:178
+msgid "Error: The value you entered was invalid."
+msgstr "错误：您输入的值无效。"
+
+#: venv/Lib/site-packages/click/termui.py:180
+#, python-brace-format
+msgid "Error: {e.message}"
+msgstr "错误：{e.message}"
+
+#: venv/Lib/site-packages/click/termui.py:191
+msgid "Error: The two entered values do not match."
+msgstr "错误：输入的两个值不匹配。"
+
+#: venv/Lib/site-packages/click/termui.py:247
+msgid "Error: invalid input"
+msgstr "错误：无效输入"
+
+#: venv/Lib/site-packages/click/termui.py:866
+msgid "Press any key to continue..."
+msgstr "按任意键继续..."
+
+#: venv/Lib/site-packages/click/types.py:332
+#, python-brace-format
+msgid ""
+"Choose from:\n"
+"\t{choices}"
+msgstr "请选择：\n\t{choices}"
+
+#: venv/Lib/site-packages/click/types.py:369
+#, python-brace-format
+msgid "{value!r} is not {choice}."
+msgid_plural "{value!r} is not one of {choices}."
+msgstr[0] "{value!r} 不是 {choice}。"
+
+#: venv/Lib/site-packages/click/types.py:460
+#, python-brace-format
+msgid "{value!r} does not match the format {format}."
+msgid_plural "{value!r} does not match the formats {formats}."
+msgstr[0] "{value!r} 不符合格式 {format}。"
+
+#: venv/Lib/site-packages/click/types.py:482
+#, python-brace-format
+msgid "{value!r} is not a valid {number_type}."
+msgstr "{value!r} 不是有效的 {number_type}。"
+
+#: venv/Lib/site-packages/click/types.py:538
+#, python-brace-format
+msgid "{value} is not in the range {range}."
+msgstr "{value} 不在范围 {range} 内。"
+
+#: venv/Lib/site-packages/click/types.py:679
+#, python-brace-format
+msgid "{value!r} is not a valid boolean."
+msgstr "{value!r} 不是有效的布尔值。"
+
+#: venv/Lib/site-packages/click/types.py:703
+#, python-brace-format
+msgid "{value!r} is not a valid UUID."
+msgstr "{value!r} 不是有效的 UUID。"
+
+#: venv/Lib/site-packages/click/types.py:893
+msgid "file"
+msgstr "文件"
+
+#: venv/Lib/site-packages/click/types.py:895
+msgid "directory"
+msgstr "目录"
+
+#: venv/Lib/site-packages/click/types.py:897
+msgid "path"
+msgstr "路径"
+
+#: venv/Lib/site-packages/click/types.py:944
+#, python-brace-format
+msgid "{name} {filename!r} does not exist."
+msgstr "{name} {filename!r} 不存在。"
+
+#: venv/Lib/site-packages/click/types.py:1071
+#, python-brace-format
+msgid "{len_type} values are required, but none were given."
+msgstr "{len_type} 个值是必需的，但未提供任何值。"
+
+#: venv/Lib/site-packages/click/types.py:1107
+msgid "invalid choice: {choice}. (choose from {choices})"
+msgstr "无效选择：{choice}。（可选项：{choices}）"
+
+#: venv/Lib/site-packages/click/types.py:1132
+msgid "invalid choice: {choice}."
+msgstr "无效选择：{choice}。"
+
+#: venv/Lib/site-packages/click/types.py:1160
+msgid "invalid literal for int() with base {base}: {value!r}"
+msgstr "无效的整数字面量（基数 {base}）：{value!r}"
+
+#: venv/Lib/site-packages/click/types.py:1195
+msgid "invalid float value: {value!r}"
+msgstr "无效的浮点数值：{value!r}"
+
+#: venv/Lib/site-packages/click/types.py:1214
+msgid "invalid integer value: {value!r}"
+msgstr "无效的整数值：{value!r}"
+
+#: venv/Lib/site-packages/click/types.py:1235
+msgid "invalid boolean value: {value!r}"
+msgstr "无效的布尔值：{value!r}"
+
+#: venv/Lib/site-packages/click/types.py:1261
+msgid "invalid UUID value: {value!r}"
+msgstr "无效的 UUID 值：{value!r}"
+
+#: venv/Lib/site-packages/click/types.py:1284
+msgid "file does not exist: {filename!r}"
+msgstr "文件不存在：{filename!r}"
+
+#: venv/Lib/site-packages/click/types.py:1302
+msgid "directory does not exist: {filename!r}"
+msgstr "目录不存在：{filename!r}"
+
+#: venv/Lib/site-packages/click/types.py:1321
+msgid "path does not exist: {filename!r}"
+msgstr "路径不存在：{filename!r}"
+
+#: venv/Lib/site-packages/click/types.py:1338
+msgid "file is not readable: {filename!r}"
+msgstr "文件不可读：{filename!r}"
+
+#: venv/Lib/site-packages/click/types.py:1354
+msgid "file is not writable: {filename!r}"
+msgstr "文件不可写：{filename!r}"
+
+#: venv/Lib/site-packages/click/types.py:1370
+msgid "file is not executable: {filename!r}"
+msgstr "文件不可执行：{filename!r}"
+
+#: venv/Lib/site-packages/click/types.py:1388
+msgid "invalid file mode: {mode!r}"
+msgstr "无效的文件模式：{mode!r}"
+
+#: venv/Lib/site-packages/click/types.py:1402
+msgid "invalid encoding: {encoding!r}"
+msgstr "无效的编码：{encoding!r}"
+
+#: venv/Lib/site-packages/click/utils.py:329
+msgid "Value is not a valid email address."
+msgstr "值不是有效的电子邮件地址。"
+
+#: venv/Lib/site-packages/click/utils.py:345
+msgid "Value is not a valid URL."
+msgstr "值不是有效的 URL。"
+
+#: venv/Lib/site-packages/click/utils.py:365
+msgid "Value is not a valid IP address."
+msgstr "值不是有效的 IP 地址。"
+

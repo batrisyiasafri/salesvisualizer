@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Uploaded Files</title>
+  <style>
+    h2 {
+      font-family: Arial, sans-serif;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 12px 15px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #4CAF50;
+      color: white;
+      font-weight: 600;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    tr:hover {
+      background-color: #d2f4ea;
+    }
+
+    a {
+      color: #1a73e8;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive styles */
+    @media (max-width: 600px) {
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+
+      thead tr {
+        display: none;
+      }
+
+      tr {
+        margin-bottom: 15px;
+        border-bottom: 2px solid #ddd;
+      }
+
+      td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+        white-space: normal;
+      }
+
+      td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 15px;
+        width: 45%;
+        padding-left: 10px;
+        font-weight: 600;
+        text-align: left;
+        white-space: nowrap;
+      }
+    }
+  </style>
+</head>
+<button onclick="window.history.back()" style="
+    background-color: #4CAF50; 
+    color: white; 
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 4px; 
+    cursor: pointer;
+    font-size: 16px;
+">Back</button>
+
+<body>
+  <h2>My Uploaded Files</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Filename</th>
+        <th>Uploaded At</th>
+        <th>Mode</th>
+        <th>Total</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for upload in uploads %}
+      <tr>
+        <td data-label="Filename">{{ upload.filename }}</td>
+        <td data-label="Uploaded At">{{ upload.uploaded_at.strftime("%d/%m/%Y %H:%M") }}</td>
+        <td data-label="Mode">{{ upload.mode }}</td>
+        <td data-label="Total">${{ "%.2f"|format(upload.total) }}</td>
+        <td data-label="Actions">
+          <a href="{{ url_for('download_old_report', upload_id=upload.id) }}">Download Report</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>

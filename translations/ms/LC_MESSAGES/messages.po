@@ -1,0 +1,63 @@
+# Malay translations for PROJECT.
+# Copyright (C) 2025 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR batrisyia.safri@csb.gov.bn, 2025.
+
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2025-08-06 14:12+0800\n"
+"PO-Revision-Date: 2025-08-06 14:12+0800\n"
+"Last-Translator: FULL NAME batrisyia.safri@csb.gov.bn\n"
+"Language: ms\n"
+"Language-Team: ms batrisyia.safri@csb.gov.bn\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: templates/landing.html:197
+msgid "Sales Visualizer"
+msgstr "Pemvisual Jualan"
+
+#: templates/landing.html:198
+msgid "Turn boring CSVs into interactive charts and summaries instantly."
+msgstr "Tukar CSV membosankan kepada carta dan ringkasan interaktif serta-merta."
+
+#: templates/landing.html:202
+msgid "Language:"
+msgstr "Bahasa:"
+
+#: templates/landing.html:219
+msgid "Features"
+msgstr "Ciri-ciri"
+
+#: templates/landing.html:221
+msgid "Upload CSVs and generate clean sales reports"
+msgstr "Muat naik CSV dan hasilkan laporan jualan yang kemas"
+
+#: templates/landing.html:222
+msgid "Interactive charts (bar, line, pie)"
+msgstr "Carta interaktif (bar, garis, pai)"
+
+#: templates/landing.html:223
+msgid "Export to PDF and Excel"
+msgstr "Eksport ke PDF dan Excel"
+
+#: templates/landing.html:224
+msgid "Filter by date and item"
+msgstr "Tapis mengikut tarikh dan item"
+
+#: templates/landing.html:229
+msgid "Try the Live Demo"
+msgstr "Cuba Demo Langsung"
+
+#: templates/landing.html:234
+msgid "Built with Python, Flask, Chart.js, and love."
+msgstr "Dibina dengan Python, Flask, Chart.js, dan kasih sayang."
+
+#: templates/landing.html:235
+msgid "Terms of Use"
+msgstr "Terma Penggunaan"

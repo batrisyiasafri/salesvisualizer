@@ -1,0 +1,303 @@
+# Indonesian translations for Sales Visualizer project
+# Copyright (C) 2025 Your Name or Your Organization
+# This file is distributed under the same license as the Sales Visualizer project.
+# FIRST AUTHOR <batrisyia.safri@csb.gov.bn>, 2025.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Sales Visualizer 1.0\n"
+"Report-Msgid-Bugs-To: <batrisyia.safri@csb.gov.bn>\n"
+"POT-Creation-Date: 2025-08-04 12:00+0000\n"
+"PO-Revision-Date: 2025-08-04 12:00+0000\n"
+"Last-Translator: Your Name <batrisyia.safri@csb.gov.bn>\n"
+"Language-Team: Indonesian <batrisyia.safri@csb.gov.bn>\n"
+"Language: id\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: templates/landing.html:178
+msgid "Sales Visualizer"
+msgstr "Visualisasi Penjualan"
+
+#: templates/landing.html:179
+msgid "Turn boring CSVs into interactive charts and summaries instantly."
+msgstr "Ubah CSV membosankan menjadi grafik dan ringkasan interaktif secara instan."
+
+#: templates/landing.html:192
+msgid "Features"
+msgstr "Fitur"
+
+#: templates/landing.html:194
+msgid "Upload CSVs and generate clean sales reports"
+msgstr "Unggah CSV dan buat laporan penjualan yang rapi"
+
+#: templates/landing.html:195
+msgid "Interactive charts (bar, line, pie)"
+msgstr "Grafik interaktif (batang, garis, pai)"
+
+#: templates/landing.html:196
+msgid "Export to PDF and Excel"
+msgstr "Ekspor ke PDF dan Excel"
+
+#: templates/landing.html:201
+msgid "Test Language Switching"
+msgstr "Ujian Pertukaran Bahasa"
+
+#: templates/landing.html:197
+msgid "Filter by date and item"
+msgstr "Filter berdasarkan tanggal dan item"
+
+#: templates/landing.html:202
+msgid "Try the Live Demo"
+msgstr "Coba Demo Langsung"
+
+#: templates/landing.html:207
+msgid "Built with Python, Flask, Chart.js, and love."
+msgstr "Dibangun dengan Python, Flask, Chart.js, dan cinta."
+
+#: templates/landing.html:208
+msgid "Terms of Use"
+msgstr "Syarat Penggunaan"
+
+#: venv/Lib/site-packages/click/_termui_impl.py:600
+#, python-brace-format
+msgid "{editor}: Editing failed"
+msgstr "{editor}: Pengeditan gagal"
+
+#: venv/Lib/site-packages/click/_termui_impl.py:604
+#, python-brace-format
+msgid "{editor}: Editing failed: {e}"
+msgstr "{editor}: Pengeditan gagal: {e}"
+
+#: venv/Lib/site-packages/click/core.py:1084
+#: venv/Lib/site-packages/click/core.py:1121
+#, python-brace-format
+msgid "{text} {deprecated_message}"
+msgstr "{text} {deprecated_message}"
+
+#: venv/Lib/site-packages/click/core.py:1140
+msgid "Options"
+msgstr "Opsi"
+
+#: venv/Lib/site-packages/click/core.py:1202
+#, python-brace-format
+msgid "Got unexpected extra argument ({args})"
+msgid_plural "Got unexpected extra arguments ({args})"
+msgstr[0] "Mendapat argumen ekstra tak terduga ({args})"
+msgstr[1] "Mendapat argumen ekstra tak terduga ({args})"
+
+#: venv/Lib/site-packages/click/core.py:1221
+#, python-brace-format
+msgid "DeprecationWarning: The command {name!r} is deprecated.{extra_message}"
+msgstr "Peringatan Depresiasi: Perintah {name!r} sudah tidak digunakan.{extra_message}"
+
+#: venv/Lib/site-packages/click/core.py:1405
+msgid "Aborted!"
+msgstr "Dibatalkan!"
+
+#: venv/Lib/site-packages/click/core.py:1779
+msgid "Commands"
+msgstr "Perintah"
+
+#: venv/Lib/site-packages/click/core.py:1810
+msgid "Missing command."
+msgstr "Perintah hilang."
+
+#: venv/Lib/site-packages/click/core.py:1888
+#, python-brace-format
+msgid "No such command {name!r}."
+msgstr "Tidak ada perintah {name!r}."
+
+#: venv/Lib/site-packages/click/core.py:2303
+msgid "Value must be an iterable."
+msgstr "Nilai harus dapat diiterasi."
+
+#: venv/Lib/site-packages/click/core.py:2324
+#, python-brace-format
+msgid "Takes {nargs} values but 1 was given."
+msgid_plural "Takes {nargs} values but {len} were given."
+msgstr[0] "Memerlukan {nargs} nilai tapi 1 diberikan."
+msgstr[1] "Memerlukan {nargs} nilai tapi {len} diberikan."
+
+#: venv/Lib/site-packages/click/core.py:2404
+#, python-brace-format
+msgid "DeprecationWarning: The {param_type} {name!r} is deprecated.{extra_message}"
+msgstr "Peringatan Depresiasi: {param_type} {name!r} sudah tidak digunakan.{extra_message}"
+
+#: venv/Lib/site-packages/click/core.py:2807
+#, python-brace-format
+msgid "env var: {var}"
+msgstr "variabel lingkungan: {var}"
+
+#: venv/Lib/site-packages/click/core.py:2810
+#, python-brace-format
+msgid "default: {default}"
+msgstr "default: {default}"
+
+#: venv/Lib/site-packages/click/core.py:2814
+msgid "required"
+msgstr "diperlukan"
+
+#: venv/Lib/site-packages/click/core.py:2870
+msgid "(dynamic)"
+msgstr "(dinamis)"
+
+#: venv/Lib/site-packages/click/decorators.py:465
+#, python-format
+msgid "%(prog)s, version %(version)s"
+msgstr "%(prog)s, versi %(version)s"
+
+#: venv/Lib/site-packages/click/decorators.py:522
+msgid "Show the version and exit."
+msgstr "Tampilkan versi dan keluar."
+
+#: venv/Lib/site-packages/click/decorators.py:548
+msgid "Show this message and exit."
+msgstr "Tampilkan pesan ini dan keluar."
+
+#: venv/Lib/site-packages/click/exceptions.py:50
+#: venv/Lib/site-packages/click/exceptions.py:89
+#, python-brace-format
+msgid "Error: {message}"
+msgstr "Kesalahan: {message}"
+
+#: venv/Lib/site-packages/click/exceptions.py:81
+#, python-brace-format
+msgid "Try '{command} {option}' for help."
+msgstr "Coba '{command} {option}' untuk bantuan."
+
+#: venv/Lib/site-packages/click/exceptions.py:130
+#, python-brace-format
+msgid "Invalid value: {message}"
+msgstr "Nilai tidak valid: {message}"
+
+#: venv/Lib/site-packages/click/exceptions.py:132
+#, python-brace-format
+msgid "Invalid value for {param_hint}: {message}"
+msgstr "Nilai tidak valid untuk {param_hint}: {message}"
+
+#: venv/Lib/site-packages/click/exceptions.py:190
+msgid "Missing argument"
+msgstr "Argumen hilang"
+
+#: venv/Lib/site-packages/click/exceptions.py:192
+msgid "Missing option"
+msgstr "Opsi hilang"
+
+#: venv/Lib/site-packages/click/exceptions.py:194
+msgid "Missing parameter"
+msgstr "Parameter hilang"
+
+#: venv/Lib/site-packages/click/exceptions.py:196
+#, python-brace-format
+msgid "Missing {param_type}"
+msgstr "Hilangkan {param_type}"
+
+#: venv/Lib/site-packages/click/exceptions.py:203
+#, python-brace-format
+msgid "Missing parameter: {param_name}"
+msgstr "Parameter hilang: {param_name}"
+
+#: venv/Lib/site-packages/click/exceptions.py:223
+#, python-brace-format
+msgid "No such option: {name}"
+msgstr "Tidak ada opsi: {name}"
+
+#: venv/Lib/site-packages/click/exceptions.py:235
+#, python-brace-format
+msgid "Did you mean {possibility}?"
+msgid_plural "(Possible options: {possibilities})"
+msgstr[0] "Apakah maksud Anda {possibility}?"
+msgstr[1] "(Opsi yang mungkin: {possibilities})"
+
+#: venv/Lib/site-packages/click/exceptions.py:282
+msgid "unknown error"
+msgstr "kesalahan tidak diketahui"
+
+#: venv/Lib/site-packages/click/exceptions.py:289
+#, python-brace-format
+msgid "Could not open file {filename!r}: {message}"
+msgstr "Tidak dapat membuka file {filename!r}: {message}"
+
+#: venv/Lib/site-packages/click/formatting.py:156
+msgid "Usage:"
+msgstr "Penggunaan:"
+
+#: venv/Lib/site-packages/click/parser.py:200
+#, python-brace-format
+msgid "Argument {name!r} takes {nargs} values."
+msgstr "Argumen {name!r} menerima {nargs} nilai."
+
+#: venv/Lib/site-packages/click/parser.py:383
+#, python-brace-format
+msgid "Option {name!r} does not take a value."
+msgstr "Opsi {name!r} tidak menerima nilai."
+
+#: venv/Lib/site-packages/click/parser.py:444
+#, python-brace-format
+msgid "Option {name!r} requires an argument."
+msgid_plural "Option {name!r} requires {nargs} arguments."
+msgstr[0] "Opsi {name!r} memerlukan satu argumen."
+msgstr[1] "Opsi {name!r} memerlukan {nargs} argumen."
+
+#: venv/Lib/site-packages/click/shell_completion.py:326
+msgid "Shell completion is not supported for Bash versions older than 4.4."
+msgstr "Penyelesaian shell tidak didukung untuk Bash versi sebelum 4.4."
+
+#: venv/Lib/site-packages/click/shell_completion.py:333
+msgid "Couldn't detect Bash version, shell completion is not supported."
+msgstr "Tidak dapat mendeteksi versi Bash, penyelesaian shell tidak didukung."
+
+#: venv/Lib/site-packages/click/termui.py:162
+msgid "Repeat for confirmation"
+msgstr "Ulangi untuk konfirmasi"
+
+#: venv/Lib/site-packages/click/termui.py:178
+msgid "Error: The value you entered was invalid."
+msgstr "Kesalahan: Nilai yang Anda masukkan tidak valid."
+
+#: venv/Lib/site-packages/click/termui.py:180
+#, python-brace-format
+msgid "Error: {e.message}"
+msgstr "Kesalahan: {e.message}"
+
+#: venv/Lib/site-packages/click/termui.py:191
+msgid "Error: The two entered values do not match."
+msgstr "Kesalahan: Dua nilai yang dimasukkan tidak cocok."
+
+#: venv/Lib/site-packages/click/termui.py:247
+msgid "Error: invalid input"
+msgstr "Kesalahan: input tidak valid"
+
+#: venv/Lib/site-packages/click/termui.py:866
+msgid "Press any key to continue..."
+msgstr "Tekan tombol apa saja untuk melanjutkan..."
+
+#: venv/Lib/site-packages/click/types.py:332
+#, python-brace-format
+msgid ""
+"Choose from:\n"
+"\t{choices}"
+msgstr ""
+"Pilih dari:\n"
+"\t{choices}"
+
+#: venv/Lib/site-packages/click/types.py:369
+#, python-brace-format
+msgid "{value!r} is not {choice}."
+msgid_plural "{value!r} is not one of {choices}."
+msgstr[0] "{value!r} bukan {choice}."
+msgstr[1] "{value!r} bukan salah satu dari {choices}."
+
+#: venv/Lib/site-packages/click/types.py:460
+#, python-brace-format
+msgid "{value!r} does not match the format {format}."
+msgid_plural "{value!r} does not match the formats {formats}."
+msgstr[0] "{value!r} tidak sesuai dengan format {format}."
+msgstr[1] "{value!r} tidak sesuai dengan format {formats}."
+
+#: venv/Lib/site-packages/click/types.py:482
+#, python
