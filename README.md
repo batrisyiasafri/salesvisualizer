@@ -108,6 +108,7 @@ Ensure your CSV is structured like this:
 - README with setup instructions
 - MIT License
 
+---
 
 🔒 Disclaimer
 This is a demo/prototype tool.
