@@ -5,8 +5,6 @@
 🔹 Upload your sales CSV  
 🔹 See visual + tabular summaries instantly  
 🔹 Export charts & tables to PDF or Excel  
-🔹 Mobile-friendly. No database needed.
-
 
 # 📊 Sales Summary Web App
 
