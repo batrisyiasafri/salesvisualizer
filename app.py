@@ -35,6 +35,9 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("SQLALCHEMY_DATABASE_URI")
 app.config['BABEL_DEFAULT_LOCALE'] = 'en'
 app.config['BABEL_TRANSLATION_DIRECTORIES'] = 'translations'
 
+print("Loaded DB URI:", app.config['SQLALCHEMY_DATABASE_URI'])
+
+
 app.config['SESSION_COOKIE_SECURE'] = False  # if you're on HTTP
 app.config['SESSION_COOKIE_HTTPONLY'] = True
 app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'
