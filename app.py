@@ -24,6 +24,7 @@ import uuid
 from flask_mail import Mail, Message
 from itsdangerous import URLSafeTimedSerializer
 import logging
+from flask import send_from_directory
 from flask_talisman import Talisman
 
 logging.basicConfig(level=logging.INFO)
@@ -820,6 +821,15 @@ def bad_request_error(error):
 @app.errorhandler(500)
 def internal_error(error):
     return render_template("500.html"), 500
+
+# my app logo
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(
+        os.path.join(app.root_path, 'static'),
+        'favicon.ico',
+        mimetype='image/vnd.microsoft.icon'
+    )
 
 
 if __name__ == "__main__":
