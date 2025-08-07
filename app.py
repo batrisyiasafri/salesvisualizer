@@ -179,6 +179,7 @@ def admin_required(f):
 def admin():
     users = User.query.all()
     uploads = Upload.query.all()  # if uploads exist
+    payment_requests = PaymentRequest.query.order_by(PaymentRequest.created_at.desc()).all()
     return render_template('admin.html', users=users, uploads=uploads)
 
 # delete a user from admin page
@@ -614,8 +615,6 @@ def index():
     return render_template("index.html", summary=summary, mode=mode, total_sales=total_sales)
 
 
-
-
 # download pdf
 @app.route("/download", methods=["POST"])
 @login_required
@@ -810,6 +809,28 @@ def upgrade_manual():
         "swift_code": "BAIDBNBB"
     }
     return render_template("upgrade_manual.html", bank_info=bank_info)
+
+# to accept payment
+@app.route('/admin/payment_request/<int:request_id>/approve', methods=['POST'])
+@login_required
+@admin_required
+def approve_payment(request_id):
+    payment = PaymentRequest.query.get_or_404(request_id)
+    payment.status = 'approved'
+    db.session.commit()
+    flash(f'Payment request #{request_id} approved', 'success')
+    return redirect(url_for('admin'))
+
+# reject payment
+@app.route('/admin/payment_request/<int:request_id>/reject', methods=['POST'])
+@login_required
+@admin_required
+def approve_payment(request_id):
+    payment = PaymentRequest.query.get_or_404(request_id)
+    payment.status = 'rejected'
+    db.session.commit()
+    flash(f'Payment request #{request_id} rejected', 'danger')
+    return redirect(url_for('admin'))
 
 
 # to upgrade page
