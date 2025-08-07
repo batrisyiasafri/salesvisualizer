@@ -544,6 +544,9 @@ def index():
     summary = None
     mode = "date"
 
+    # check if user has a pending upgrade request
+    pending_request = PaymentRequest.query.filter_by(user_id=current_user.id, status='pending').first()
+
     if request.method == "GET" and request.args.get("clear"):
         session.pop('latest_summary', None)
         session.pop('latest_mode', None)
@@ -586,12 +589,10 @@ def index():
                 flash("No sales data found for the selected data range", "warning")
                 return redirect(url_for("index"))
 
-            # save to DB
             new_upload = Upload(filename=filename, mode=mode, total=sum(summary.values()), user_id=current_user.id)
             db.session.add(new_upload)
             db.session.commit()
 
-            # save to session (serialized)
             session['latest_summary'] = serialize_summary(summary, mode)
             session['latest_mode'] = mode
 
@@ -603,7 +604,6 @@ def index():
             if os.path.exists(filepath):
                 os.remove(filepath)
 
-    # if no fresh upload this request, load from session
     if summary is None:
         serialized = session.get('latest_summary')
         mode = session.get('latest_mode', 'date')
@@ -612,7 +612,15 @@ def index():
 
     total_sales = sum(summary.values()) if summary else 0
 
-    return render_template("index.html", summary=summary, mode=mode, total_sales=total_sales)
+    # pass pending_request to the template
+    return render_template(
+        "index.html",
+        summary=summary,
+        mode=mode,
+        total_sales=total_sales,
+        pending_request=pending_request
+    )
+
 
 
 # download pdf
