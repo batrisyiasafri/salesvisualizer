@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Manual Payment Upgrade</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f4f6;
+      margin: 0;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      background-color: #ffffff;
+      max-width: 500px;
+      width: 100%;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: left;
+    }
+
+    h1 {
+      color: #2c3e50;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    p {
+      color: #555;
+      margin: 10px 0 20px 0;
+      line-height: 1.5;
+      font-size: 16px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin-bottom: 20px;
+      font-size: 16px;
+      color: #333;
+    }
+
+    ul li {
+      margin-bottom: 8px;
+    }
+
+    ul li strong {
+      width: 130px;
+      display: inline-block;
+    }
+
+    label {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 8px;
+      font-size: 15px;
+      color: #2c3e50;
+    }
+
+    input[type="file"] {
+      width: 100%;
+      padding: 6px;
+      margin-bottom: 20px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      cursor: pointer;
+    }
+
+    button {
+      width: 100%;
+      background-color: #007bff;
+      color: white;
+      padding: 12px 0;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    a {
+      display: block;
+      margin-top: 20px;
+      text-align: center;
+      color: #007bff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Upgrade to Premium (Manual Payment)</h1>
+    <p>Please make your payment to the following Baiduri bank account:</p>
+    <ul>
+      <li><strong>Bank:</strong> {{ bank_info.bank_name }}</li>
+      <li><strong>Account Number:</strong> {{ bank_info.account_number }}</li>
+      <li><strong>Account Name:</strong> {{ bank_info.account_name }}</li>
+      <li><strong>SWIFT Code:</strong> {{ bank_info.swift_code }}</li>
+    </ul>
+    <p>After payment, upload your payment proof below:</p>
+    <form method="post" enctype="multipart/form-data">
+      <label for="proof">Upload Payment Proof (Image or PDF):</label>
+      <input type="file" name="proof" id="proof" accept=".png,.jpg,.jpeg,.pdf" required />
+      <button type="submit">Submit Proof</button>
+    </form>
+    <a href="{{ url_for('index') }}">← Go Back</a>
+  </div>
+</body>
+</html>
