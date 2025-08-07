@@ -180,7 +180,7 @@ def admin():
     users = User.query.all()
     uploads = Upload.query.all()  # if uploads exist
     payment_requests = PaymentRequest.query.order_by(PaymentRequest.created_at.desc()).all()
-    return render_template('admin.html', users=users, uploads=uploads)
+    return render_template('admin.html', users=users, uploads=uploads, payment_requests=payment_requests)
 
 # delete a user from admin page
 @app.route('/admin/delete_user/<int:user_id>', methods=['POST'])
