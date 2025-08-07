@@ -104,6 +104,17 @@ class FileSummary(db.Model):
     summary_text = db.Column(db.Text)
     generated_at = db.Column(db.DateTime, default=datetime.utcnow)
 
+class PaymentRequest(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    amount = db.Column(db.Numeric(10, 2), nullable=False)
+    currency = db.Column(db.String(3), default='BND', nullable=False)
+    proof_filename = db.Column(db.String(256), nullable=True)
+    status = db.Column(db.String(20), default='pending')  # pending, approved, rejected
+    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+    updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+
+
 # admin credentials
 def create_admin_user():
     if not User.query.filter_by(username='admin').first():
@@ -766,6 +777,39 @@ def download_old_report(upload_id):
         as_attachment=True,
         download_name=download_name
     )
+
+# to payment page
+@app.route("/upgrade_manual", methods=["GET", "POST"])
+@login_required
+def upgrade_manual():
+    if request.method == "POST":
+        proof = request.files.get('proof')
+        if proof and proof.filename != '' and proof.filename.lower().endswith(('.png', '.jpg', '.jpeg', '.pdf')):
+            filename = f"{current_user.id}_{uuid.uuid4().hex}_{secure_filename(proof.filename)}"
+            filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            proof.save(filepath)
+            
+            # save payment request to DB
+            payment_request = PaymentRequest(
+                user_id=current_user.id,
+                proof_filename=filename,
+                status="pending"
+            )
+            db.session.add(payment_request)
+            db.session.commit()
+
+            flash("Payment proof uploaded! We'll verify and upgrade you ASAP.", "success")
+            return redirect(url_for('index'))
+        else:
+            flash("Please upload a valid image/pdf file as proof.", "warning")
+
+    bank_info = {
+        "bank_name": "Baiduri Bank",
+        "account_number": "1000740511369",
+        "account_name": "BATRISYIA NAJIHAH BINTI SAFRI",
+        "swift_code": "BAIDBNBB"
+    }
+    return render_template("upgrade_manual.html", bank_info=bank_info)
 
 
 # to upgrade page
