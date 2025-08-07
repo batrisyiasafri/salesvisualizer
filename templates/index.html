@@ -15,6 +15,13 @@
   {% endif %}
 {% endwith %}
 
+{% if pending_request %}
+  <div style="padding: 12px; margin-bottom: 20px; background-color: #fff3cd; border: 1px solid #ffeeba; color: #856404; border-radius: 4px; text-align: center;">
+    Your upgrade request is pending admin approval. Please wait.
+  </div>
+{% endif %}
+
+
 </head>
 <body>
     <div class="container">
