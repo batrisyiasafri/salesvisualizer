@@ -817,12 +817,16 @@ def upgrade_manual():
 def approve_payment(request_id):
     payment = PaymentRequest.query.get_or_404(request_id)
     if payment.status != 'pending':
-        flash(f'Payment request #{request_id} has already been processed.', 'warning')
+        flash('Payment request already processed.', 'warning')
         return redirect(url_for('admin'))
+
     payment.status = 'approved'
+    payment.user.plan = 'premium'  # Upgrade user plan 
     db.session.commit()
-    flash(f'Payment request #{request_id} approved', 'success')
+
+    flash(f'User {payment.user.username} upgraded to premium!', 'success')
     return redirect(url_for('admin'))
+
 
 # reject payment
 @app.route('/admin/payment_request/<int:request_id>/approve', methods=['POST'])
@@ -839,19 +843,28 @@ def reject_payment(request_id):
     return redirect(url_for('admin'))
 
 # to upgrade page
-@app.route("/upgrade")
-@login_required
-def upgrade():
-    return render_template("upgrade.html")
-
-# process upgrde 
 @app.route("/process_upgrade", methods=["POST"])
 @login_required
 def process_upgrade():
-    current_user.plan = "premium"
+    # check if there's already a pending request to avoid duplicates
+    existing_request = PaymentRequest.query.filter_by(user_id=current_user.id, status='pending').first()
+    if existing_request:
+        flash("You already have a pending upgrade request.", "warning")
+        return redirect(url_for("index"))
+    
+    # create a new payment/upgrade request
+    new_request = PaymentRequest(
+        user_id=current_user.id,
+        amount=3.99,  # or your premium price
+        currency="BND",
+        status="pending"
+    )
+    db.session.add(new_request)
     db.session.commit()
-    flash("Upgrade successful! Enjoy premium features.", "success")
+
+    flash("Upgrade request submitted! Please wait for admin approval.", "info")
     return redirect(url_for("index"))
+
 
 # default page
 @app.route("/")
