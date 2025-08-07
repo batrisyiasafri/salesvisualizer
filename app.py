@@ -629,7 +629,7 @@ def download_report():
     summary = deserialize_summary(serialized, mode)
     report_stream = generate_excel_report(summary, mode)
 
-    # Safe download name
+    # safe download name
     filename_map = {
         "date": "sales_summary_date.xlsx",
         "item": "sales_summary_item.xlsx",
@@ -816,22 +816,27 @@ def upgrade_manual():
 @admin_required
 def approve_payment(request_id):
     payment = PaymentRequest.query.get_or_404(request_id)
+    if payment.status != 'pending':
+        flash(f'Payment request #{request_id} has already been processed.', 'warning')
+        return redirect(url_for('admin'))
     payment.status = 'approved'
     db.session.commit()
     flash(f'Payment request #{request_id} approved', 'success')
     return redirect(url_for('admin'))
 
 # reject payment
-@app.route('/admin/payment_request/<int:request_id>/reject', methods=['POST'])
+@app.route('/admin/payment_request/<int:request_id>/approve', methods=['POST'])
 @login_required
 @admin_required
-def approve_payment(request_id):
+def reject_payment(request_id):
     payment = PaymentRequest.query.get_or_404(request_id)
+    if payment.status != 'pending':
+        flash(f'Payment request #{request_id} has already been processed.', 'warning')
+        return redirect(url_for('admin'))
     payment.status = 'rejected'
     db.session.commit()
-    flash(f'Payment request #{request_id} rejected', 'danger')
+    flash(f'Payment request #{request_id} rejected', 'success')
     return redirect(url_for('admin'))
-
 
 # to upgrade page
 @app.route("/upgrade")
