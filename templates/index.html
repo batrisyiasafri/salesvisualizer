@@ -5,22 +5,70 @@
     <title>Sales Summary Report</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
+    <style>
+        /* Button styles */
+        .primary-button {
+            display: inline-block;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            color: white;
+            background-color: #007bff;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .primary-button:hover {
+            background-color: #0056b3;
+        }
+
+        .upgrade-button {
+            background-color: #28a745; /* Green */
+        }
+
+        .upgrade-button:hover {
+            background-color: #1e7e34;
+        }
+
+        /* Container and spacing */
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        .flash-messages {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+            color: #856404;
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        /* Other styling remains as per your external CSS */
+    </style>
+
     {% with messages = get_flashed_messages() %}
-  {% if messages %}
-    <ul class="flash-messages">
-      {% for message in messages %}
-        <li>{{ message }}</li>
-      {% endfor %}
-    </ul>
-  {% endif %}
-{% endwith %}
+      {% if messages %}
+        <ul class="flash-messages">
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
 
-{% if pending_request %}
-  <div style="padding: 12px; margin-bottom: 20px; background-color: #fff3cd; border: 1px solid #ffeeba; color: #856404; border-radius: 4px; text-align: center;">
-    Your upgrade request is pending admin approval. Please wait.
-  </div>
-{% endif %}
-
+    {% if pending_request %}
+      <div style="padding: 12px; margin-bottom: 20px; background-color: #fff3cd; border: 1px solid #ffeeba; color: #856404; border-radius: 4px; text-align: center;">
+        Your upgrade request is pending admin approval. Please wait.
+      </div>
+    {% endif %}
 
 </head>
 <body>
@@ -28,18 +76,22 @@
         <a href="{{ url_for('landing') }}" class="back-button">← Back</a>
 
         {% if current_user.is_authenticated %}
-      <form action="{{ url_for('logout') }}" method="get" class="logout-form">
-        <button type="submit" class="logout-btn">Logout</button>
-      </form>
-    {% endif %}
+          <form action="{{ url_for('logout') }}" method="get" class="logout-form" style="text-align: right; margin-bottom: 20px;">
+            <button type="submit" class="primary-button">Logout</button>
+          </form>
+        {% endif %}
 
-      <!-- Add link here -->
-  <div style="text-align: center; margin: 15px 0;">
-    <a href="{{ url_for('my_uploads') }}" class="primary-button" style="text-decoration: none;">
-      View My Uploaded Files
-    </a>
-  </div>
+        <div style="text-align: center; margin: 15px 0;">
+            <a href="{{ url_for('my_uploads') }}" class="primary-button" style="text-decoration: none;">
+                View My Uploaded Files
+            </a>
+        </div>
 
+        <div style="text-align: center; margin: 15px 0;">
+            <a href="{{ url_for('upgrade_manual') }}" class="primary-button upgrade-button" style="text-decoration: none;">
+                Upgrade to Premium
+            </a>
+        </div>
 
         <h1>Upload Sales CSV</h1>
 
@@ -53,17 +105,14 @@
 
             <!-- dwnload sample csv -->
             <div class="sample-download">
-               <a href="{{ url_for('static', filename='sample_sales.csv') }}" download>
+                <a href="{{ url_for('static', filename='sample_sales.csv') }}" download>
                     Download Sample CSV
-               </a>
-
+                </a>
 
                 <span class="tooltip" aria-label="CSV must have columns: Date, Item, Amount. Extra columns are ignored. Delimiters: comma, semicolon, or tab.">
                  ⓘ
                 </span>
             </div>
-
-
 
             <!-- choose date -->
             <div class="date-range">
@@ -148,12 +197,12 @@
                 </tr>
                 {% endfor %}
                 <!-- total row -->
-                 <tr>
+                <tr>
                     <td colspan="{% if mode == 'combined' %}2{% else %}1{% endif %}"><strong>Total</strong></td>
                     <td><strong>
-                       $ {{ '%.2f'|format(total_sales) }}
+                        $ {{ '%.2f'|format(total_sales) }}
                     </strong></td>
-                 </tr>
+                </tr>
             </tbody>
         </table>
 
@@ -165,8 +214,5 @@
     </div>
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>
-
-    
-
 </body>
 </html>
