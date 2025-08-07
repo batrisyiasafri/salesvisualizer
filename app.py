@@ -822,15 +822,6 @@ def bad_request_error(error):
 def internal_error(error):
     return render_template("500.html"), 500
 
-# my app logo
-@app.route('/favicon.ico')
-def favicon():
-    return send_from_directory(
-        os.path.join(app.root_path, 'static'),
-        'favicon.ico',
-        mimetype='image/vnd.microsoft.icon'
-    )
-
 if __name__ == "__main__":
     with app.app_context():
         db.create_all()
