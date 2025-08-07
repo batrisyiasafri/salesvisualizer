@@ -575,7 +575,7 @@ def index():
             upload_count = Upload.query.filter_by(user_id=current_user.id).count()
             if upload_count >= 5:
                 flash("Free plan limit reached. Upgrade to premium to upload more files.")
-                return redirect(url_for('upgrade'))
+                return redirect(url_for('upgrade_manual'))
 
         filename = f"{uuid.uuid4().hex}_{secure_filename(file.filename)}"
         filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
