@@ -948,8 +948,10 @@ def add_csp_header(response):
 
 # to uploads proof 
 @app.route('/uploads/<filename>')
-@login_required 
+@login_required
 def uploaded_file(filename):
+    if not current_user.is_admin:
+        abort(403)
     return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
 
 
