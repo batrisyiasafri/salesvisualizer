@@ -791,24 +791,39 @@ def download_old_report(upload_id):
 def upgrade_manual():
     if request.method == "POST":
         proof = request.files.get('proof')
-        if proof and proof.filename != '' and proof.filename.lower().endswith(('.png', '.jpg', '.jpeg', '.pdf')):
-            filename = f"{current_user.id}_{uuid.uuid4().hex}_{secure_filename(proof.filename)}"
-            filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-            proof.save(filepath)
+        
+        if proof and proof.filename != '':
+            # check file size here BEFORE saving
+            proof.seek(0, os.SEEK_END)
+            file_size = proof.tell()
+            proof.seek(0)  # reset cursor to start
             
-            # save payment request to DB
-            payment_request = PaymentRequest(
-                user_id=current_user.id,
-                proof_filename=filename,
-                status="pending"
-            )
-            db.session.add(payment_request)
-            db.session.commit()
+            MAX_UPLOAD_SIZE = 5 * 1024 * 1024  # 5 MB limit
+            if file_size > MAX_UPLOAD_SIZE:
+                flash("File too large. Maximum 5MB allowed.", "warning")
+                return redirect(request.url)
+            
+            # Then check file extension
+            if proof.filename.lower().endswith(('.png', '.jpg', '.jpeg', '.pdf')):
+                filename = f"{current_user.id}_{uuid.uuid4().hex}_{secure_filename(proof.filename)}"
+                filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+                proof.save(filepath)
+                
+                # save payment request to DB
+                payment_request = PaymentRequest(
+                    user_id=current_user.id,
+                    proof_filename=filename,
+                    status="pending"
+                )
+                db.session.add(payment_request)
+                db.session.commit()
 
-            flash("Payment proof uploaded! We'll verify and upgrade you ASAP.", "success")
-            return redirect(url_for('index'))
+                flash("Payment proof uploaded! We'll verify and upgrade you ASAP.", "success")
+                return redirect(url_for('index'))
+            else:
+                flash("Please upload a valid image/pdf file as proof.", "warning")
         else:
-            flash("Please upload a valid image/pdf file as proof.", "warning")
+            flash("No file selected.", "warning")
 
     bank_info = {
         "bank_name": "Baiduri Bank",
@@ -837,7 +852,7 @@ def approve_payment(request_id):
 
 
 # reject payment
-@app.route('/admin/payment_request/<int:request_id>/approve', methods=['POST'])
+@app.route('/admin/payment_request/<int:request_id>/reject', methods=['POST'])
 @login_required
 @admin_required
 def reject_payment(request_id):
@@ -873,6 +888,13 @@ def process_upgrade():
     flash("Upgrade request submitted! Please wait for admin approval.", "info")
     return redirect(url_for("index"))
 
+# to payment status page
+@app.route('/payment_status')
+@login_required
+def payment_status():
+    # get all payment requests for current user, most recent first
+    payments = PaymentRequest.query.filter_by(user_id=current_user.id).order_by(PaymentRequest.created_at.desc()).all()
+    return render_template('payment_status.html', payments=payments)
 
 # default page
 @app.route("/")
