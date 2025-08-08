@@ -28,6 +28,7 @@ from flask import send_from_directory
 from flask_talisman import Talisman
 
 logging.basicConfig(level=logging.INFO)
+PREMIUM_PRICE = 3.99
 
 load_dotenv()
 app = Flask(__name__)
@@ -812,6 +813,8 @@ def upgrade_manual():
                 # save payment request to DB
                 payment_request = PaymentRequest(
                     user_id=current_user.id,
+                    amount=PREMIUM_PRICE,
+                    currency="BND",
                     proof_filename=filename,
                     status="pending"
                 )
@@ -890,11 +893,16 @@ def process_upgrade():
     if existing_request:
         flash("You already have a pending upgrade request.", "warning")
         return redirect(url_for("index"))
-    
+
+    # fail-safe check if PREMIUM_PRICE is somehow missing
+    if not PREMIUM_PRICE:
+        flash("Premium price is not set. Please contact support.", "danger")
+        return redirect(url_for("index"))
+
     # create a new payment/upgrade request
     new_request = PaymentRequest(
         user_id=current_user.id,
-        amount=3.99,  # or your premium price
+        amount=PREMIUM_PRICE,
         currency="BND",
         status="pending"
     )
@@ -903,6 +911,7 @@ def process_upgrade():
 
     flash("Upgrade request submitted! Please wait for admin approval.", "info")
     return redirect(url_for("index"))
+
 
 # to payment status page
 @app.route('/payment_status')
