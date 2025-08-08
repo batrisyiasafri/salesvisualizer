@@ -822,6 +822,22 @@ def upgrade_manual():
                 db.session.add(payment_request)
                 db.session.commit()
 
+                # email msg
+                msg = Message(
+                subject="New Manual Payment Submitted",
+                recipients=[current_user.email],       # user gets confirmation
+                bcc=["batrisyia2711@gmail.com"],             # admin also notified
+                body=f"""Hi {current_user.username},
+
+                We've received your payment proof for the premium upgrade.
+
+                Please give us a little time to review and approve it. You'll be notified once your upgrade is complete.
+
+                Thank you!
+                """
+                )
+                mail.send(msg)
+
                 flash("Payment proof uploaded! We'll verify and upgrade you ASAP.", "success")
                 return redirect(url_for('index'))
             else:
