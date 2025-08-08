@@ -220,7 +220,7 @@
                 <td>{{ pr.currency }}</td>
                 <td>
                     {% if pr.proof_filename %}
-                    <a href="{{ url_for('static', filename='proofs/' ~ pr.proof_filename) }}" target="_blank">View</a>
+                    <a href="{{ url_for('uploaded_file', filename=pr.proof_filename) }}" target="_blank">View</a>
                     {% else %}
                     None
                     {% endif %}
