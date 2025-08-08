@@ -844,12 +844,19 @@ def approve_payment(request_id):
         return redirect(url_for('admin'))
 
     payment.status = 'approved'
-    payment.user.plan = 'premium'  # Upgrade user plan 
+    payment.user.plan = 'premium'
     db.session.commit()
+
+    # Send approval email
+    msg = Message(
+        subject="Payment Approved - Your Account Upgraded",
+        recipients=[payment.user.email],
+        body=f"Hi {payment.user.username},\n\nYour payment has been approved and your account upgraded to premium. Enjoy!\n\nThanks,\nbat2025"
+    )
+    mail.send(msg)
 
     flash(f'User {payment.user.username} upgraded to premium!', 'success')
     return redirect(url_for('admin'))
-
 
 # reject payment
 @app.route('/admin/payment_request/<int:request_id>/reject', methods=['POST'])
@@ -862,6 +869,15 @@ def reject_payment(request_id):
         return redirect(url_for('admin'))
     payment.status = 'rejected'
     db.session.commit()
+
+    # send rejection email
+    msg = Message(
+        subject="Payment Rejected",
+        recipients=[payment.user.email],
+        body=f"Hi {payment.user.username},\n\nUnfortunately, your payment proof was rejected. Please try again or contact support.\n\nThanks,\nbat2025"
+    )
+    mail.send(msg)
+
     flash(f'Payment request #{request_id} rejected', 'success')
     return redirect(url_for('admin'))
 
