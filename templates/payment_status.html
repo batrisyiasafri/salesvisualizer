@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Payment Status</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9fafb;
+      padding: 30px;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      max-width: 700px;
+      margin: 20px auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    th {
+      background-color: #007bff;
+      color: white;
+    }
+    tr:hover {
+      background-color: #f1f5f9;
+    }
+    .status-pending {
+      color: orange;
+      font-weight: bold;
+    }
+    .status-approved {
+      color: green;
+      font-weight: bold;
+    }
+    .status-rejected {
+      color: red;
+      font-weight: bold;
+    }
+    .no-requests {
+      max-width: 500px;
+      margin: 40px auto;
+      text-align: center;
+      color: #555;
+    }
+    a.back-link {
+      display: block;
+      max-width: 500px;
+      margin: 20px auto;
+      text-align: center;
+      color: #007bff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    a.back-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>Your Payment Requests</h1>
+
+  {% if payments %}
+  <table>
+    <thead>
+      <tr>
+        <th>Uploaded On</th>
+        <th>Proof File</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for payment in payments %}
+      <tr>
+        <td>{{ payment.created_at.strftime('%Y-%m-%d %H:%M') if payment.created_at else 'N/A' }}</td>
+        <td>
+          <a href="{{ url_for('uploaded_file', filename=payment.proof_filename) }}" target="_blank" rel="noopener noreferrer">
+            View Proof
+          </a>
+        </td>
+        <td class="status-{{ payment.status }}">
+          {{ payment.status.capitalize() }}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <p class="no-requests">You have not submitted any payment proofs yet.</p>
+  {% endif %}
+
+  <a href="{{ url_for('index') }}" class="back-link">← Back to Home</a>
+</body>
+</html>
