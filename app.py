@@ -946,6 +946,13 @@ def add_csp_header(response):
     )
     return response
 
+# to uploads proof 
+@app.route('/uploads/<filename>')
+@login_required 
+def uploaded_file(filename):
+    return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
+
+
 # 404 - Page Not Found
 @app.errorhandler(404)
 def not_found_error(error):
