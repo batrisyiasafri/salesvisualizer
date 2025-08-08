@@ -108,6 +108,7 @@ class FileSummary(db.Model):
 class PaymentRequest(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    user = db.relationship('User', backref='payment_requests')
     amount = db.Column(db.Numeric(10, 2), nullable=False)
     currency = db.Column(db.String(3), default='BND', nullable=False)
     proof_filename = db.Column(db.String(256), nullable=True)
