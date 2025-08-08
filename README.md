@@ -41,7 +41,44 @@ A lightweight, modern **Flask-based web application** for quickly generating vis
 - Error messages with clear file-format guidance
 - Logout button (for multi-user setups)
 
+### 💳 Manual Payment Upload & Verification  
+- Users can manually upload payment proof files (images or PDFs) to upgrade their account.  
+- Upload limits: max 5MB, accepted formats `.png`, `.jpg`, `.jpeg`, `.pdf`.  
+- Payment requests stored in database with status tracking (`pending`, `approved`, `rejected`).  
+- Admin dashboard for reviewing, approving, or rejecting payment requests.  
+- Email notifications sent to users and admin when a manual payment is submitted.
+
+### 🛠 Admin Dashboard  
+- Manage users with delete functionality and admin protection.  
+- View and process uploads and payment requests.  
+- Approve or reject payment requests via intuitive buttons.  
+- Receive flash messages confirming actions taken.
+
 ---
+
+## 📂 Usage Update
+
+### User  
+- Access `/upgrade_manual` to submit your payment proof for premium upgrades.  
+- Receive email confirmation upon submission.  
+- Wait for admin review and approval notification.
+
+### Admin  
+- Access `/admin` to manage users, view uploads, and process payment requests.  
+- Approve or reject manual payment submissions with one click.  
+- Receive email notifications on new payment submissions.
+
+---
+
+## ⚙️ Setup Notes for Email & Uploads
+
+- Configure your email SMTP credentials in environment variables or your config file for Flask-Mail.  
+- Ensure `uploads/` folder exists and your app has write permissions.  
+- You can customize allowed file types and upload size in `upgrade_manual` route.  
+
+---
+
+
 
 ## 🖼 Preview
 
@@ -57,6 +94,7 @@ project/
 │
 ├── app.py
 ├── requirements.txt
+├── uploads/ # folder to store uploaded proofs
 ├── sample_sales.csv
 │
 ├── templates/
