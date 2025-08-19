@@ -147,16 +147,16 @@ Ensure your CSV is structured like this:
 
 ---
 
-🔒 Disclaimer
-This is a demo/prototype tool.
-Do not upload sensitive or confidential data.
-
-📝 License
+### 📝 License
 This project is licensed under the MIT License — see the LICENSE file for details.
 
-⚠️ Disclaimer
+---
+
+### ⚠️ Disclaimer
 This is a demo tool. Use at your own risk.
 Do not upload confidential, private, or sensitive information.
 
-🌐 Live Demo
+---
+
+### 🌐 Live Demo
 🔗[ Click here to try the live demo](https://salesvisualizer.onrender.com/)
